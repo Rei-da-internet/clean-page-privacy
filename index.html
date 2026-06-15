@@ -1,39 +1,327 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Política de Privacidade - Clean Page</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Clean Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge.no-data {
+            background: #10b981;
+            color: white;
+            border: none;
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1.5rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h2::before {
+            content: "🔒";
+            font-size: 1.2rem;
+        }
+
+        .section h2.no-collect::before {
+            content: "🚫";
+        }
+
+        .section h2.how-it-works::before {
+            content: "⚙️";
+        }
+
+        .section h2.permissions::before {
+            content: "🔐";
+        }
+
+        .section h2.compliance::before {
+            content: "✅";
+        }
+
+        .section h2.contact::before {
+            content: "📧";
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .data-badge {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .data-badge::before {
+            content: "❌";
+        }
+
+        .data-badge.green::before {
+            content: "✅";
+            color: #10b981;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        li.green::before {
+            content: "✅";
+            color: #10b981;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            background: #f8fafc;
+            padding: 1.5rem 2.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .section h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Política de Privacidade</h1>
-    <p><strong>Última atualização:</strong> [DATA ATUAL - ex: 15 de Junho de 2026]</p>
-    
-    <h2>Coleta de Dados</h2>
-    <p>Esta extensão <strong>NÃO coleta, armazena, processa ou transmite nenhum dado do usuário</strong>.</p>
-    
-    <h2>O que NÃO coletamos</h2>
-    <ul>
-        <li>Não coletamos informações pessoais (nome, e-mail, idade, etc.)</li>
-        <li>Não coletamos histórico de navegação</li>
-        <li>Não coletamos senhas ou credenciais</li>
-        <li>Não coletamos informações de localização</li>
-        <li>Não coletamos dados de saúde</li>
-        <li>Não coletamos informações financeiras ou de pagamento</li>
-        <li>Não coletamos comunicações pessoais (e-mails, mensagens)</li>
-        <li>Não coletamos atividade do usuário (cliques, rolagem, etc.)</li>
-        <li>Não coletamos conteúdo de sites visitados</li>
-    </ul>
-    
-    <h2>Como a extensão funciona</h2>
-    <p>A extensão opera inteiramente de forma local no navegador do usuário. Ela só é ativada quando o usuário clica no ícone da extensão, e apenas remove elementos visuais (pop-ups, banners, modais) da página atual. Nenhum dado é enviado para servidores externos.</p>
-    
-    <h2>Permissões utilizadas</h2>
-    <p>As permissões <strong>activeTab</strong> e <strong>scripting</strong> são usadas exclusivamente para permitir que o usuário remova elementos da página ativa mediante clique manual. Estas permissões NÃO são usadas para coletar dados.</p>
-    
-    <h2>Conformidade com as políticas do Chrome Web Store</h2>
-    <p>O uso das informações segue as diretrizes da <strong>Chrome Web Store User Data Policy</strong>, incluindo os requisitos de <strong>Limited Use</strong>. Nenhum dado é transferido a terceiros, usado para anúncios personalizados ou para determinar crédito.</p>
-    
-    <h2>Contato</h2>
-    <p>Para dúvidas sobre esta política de privacidade, entre em contato: <strong>[SEU E-MAIL AQUI]</strong></p>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>🔒 Política de Privacidade</h1>
+                <p>Clean Page - Removedor de Pop-ups</p>
+                <span class="badge no-data">🚫 ZERO COLEÇÃO DE DADOS</span>
+            </div>
+
+            <div class="content">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span class="last-updated">📅 Última atualização: 15 de Junho de 2026</span>
+                </div>
+
+                <!-- Seção principal: NÃO coletamos -->
+                <div class="section">
+                    <h2 class="no-collect">Nenhum dado é coletado</h2>
+                    <p>Esta extensão <strong style="color: #ef4444;">NÃO coleta, armazena, processa ou transmite nenhum dado do usuário</strong>. Sua privacidade é 100% respeitada.</p>
+                    
+                    <div class="badge-container">
+                        <span class="data-badge">Sem cadastro</span>
+                        <span class="data-badge">Sem login</span>
+                        <span class="data-badge">Sem servidores</span>
+                        <span class="data-badge">Sem rastreamento</span>
+                    </div>
+                </div>
+
+                <!-- O que NÃO coletamos -->
+                <div class="section">
+                    <h2>O que NÃO coletamos</h2>
+                    <ul>
+                        <li>Informações pessoais (nome, e-mail, idade, etc.)</li>
+                        <li>Histórico de navegação</li>
+                        <li>Senhas ou credenciais</li>
+                        <li>Informações de localização</li>
+                        <li>Dados de saúde</li>
+                        <li>Informações financeiras ou de pagamento</li>
+                        <li>Comunicações pessoais (e-mails, mensagens)</li>
+                        <li>Atividade do usuário (cliques, rolagem, etc.)</li>
+                        <li>Conteúdo de sites visitados</li>
+                        <li>Endereço de IP</li>
+                        <li>Cookies ou identificadores</li>
+                    </ul>
+                </div>
+
+                <!-- Como funciona -->
+                <div class="section">
+                    <h2 class="how-it-works">Como a extensão funciona</h2>
+                    <p>A extensão opera inteiramente de forma <strong>local no navegador</strong> do usuário. Ela só é ativada <strong>quando você clica no ícone</strong> da extensão, e apenas remove elementos visuais (pop-ups, banners, modais) da página atual.</p>
+                    <div class="highlight">
+                        <strong>📌 Importante:</strong> Nenhum dado é enviado para servidores externos. Tudo acontece exclusivamente no seu computador.
+                    </div>
+                </div>
+
+                <!-- Permissões -->
+                <div class="section">
+                    <h2 class="permissions">Permissões utilizadas</h2>
+                    <p>As permissões <strong>activeTab</strong> e <strong>scripting</strong> são usadas exclusivamente para:</p>
+                    <ul>
+                        <li class="green">✓ Acessar APENAS a aba onde você clicou</li>
+                        <li class="green">✓ Injetar código para remover elementos visuais</li>
+                        <li class="green">✓ Funcionar apenas mediante clique manual</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">Estas permissões <strong>NÃO</strong> são usadas para coletar dados. Elas são necessárias apenas para que a extensão execute sua função principal.</p>
+                </div>
+
+                <!-- Conformidade -->
+                <div class="section">
+                    <h2 class="compliance">Conformidade com políticas</h2>
+                    <p>O uso das informações segue as diretrizes da <strong>Chrome Web Store User Data Policy</strong>, incluindo os requisitos de <strong>Limited Use</strong>. Nenhum dado é:</p>
+                    <ul>
+                        <li class="green">✓ Transferido a terceiros</li>
+                        <li class="green">✓ Usado para anúncios personalizados</li>
+                        <li class="green">✓ Usado para determinar crédito</li>
+                        <li class="green">✓ Compartilhado com qualquer serviço externo</li>
+                    </ul>
+                    <div class="highlight" style="background: #dcfce7; border-left-color: #10b981;">
+                        <strong>🔒 Compromisso com a privacidade:</strong> "The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements."
+                    </div>
+                </div>
+
+                <!-- Contato -->
+                <div class="section">
+                    <h2 class="contact">Contato</h2>
+                    <p>Se você tiver dúvidas sobre esta política de privacidade, entre em contato:</p>
+                    <div class="highlight" style="background: #ede9fe; border-left-color: #667eea;">
+                        📧 <strong>E-mail:</strong> <a href="mailto:seu.email@exemplo.com" style="color: #667eea;">seu.email@exemplo.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Clean Page - Extensão para remoção de pop-ups • <a href="#">Voltar ao topo</a></p>
+                <p style="margin-top: 0.5rem;">&copy; 2026 Clean Page. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
